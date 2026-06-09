@@ -24,3 +24,7 @@
         git commit -m "Your message"
         git push origin main
     ```
+
+
+    ## Cara run file js menggunakan node
+    node --watch nama_file.js
