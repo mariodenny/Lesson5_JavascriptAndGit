@@ -1,5 +1,8 @@
+require('./db')
+const Biodata = require('./models/BiodataModel')
 const http = require('http')
 const fs = require('fs')
+
 const server = http.createServer((req, res) => {
     if (req.url === "/" && req.method === "GET") {
         res.write("Hello World from HTTP Node JS!")
@@ -33,9 +36,15 @@ const server = http.createServer((req, res) => {
             body+=chunk
         })
 
-        req.on('end', ()=>{
+        req.on('end', async ()=>{
             const data = JSON.parse(body)
             console.log(data)
+            const biodata = await Biodata.create({
+                name :  data.name,
+                age : data.age,
+                hobby : data.hobby,
+                game : data.game
+            })
             res.end("Data send")
         })
     }else {
