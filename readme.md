@@ -25,6 +25,10 @@
         git push origin main
     ```
 
+7. Cara cepat
+    ```
+        git add . && git commit -m "Your message here" && git push origin main
+    ```
 
     ## Cara run file js menggunakan node
     node --watch nama_file.js
